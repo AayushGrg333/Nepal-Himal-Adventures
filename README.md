@@ -1,4 +1,4 @@
-# NepaliHimalayaAdventures
+# Nepal Himal Adventures
 A website made for people who is interested in travelling across Nepal.
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
