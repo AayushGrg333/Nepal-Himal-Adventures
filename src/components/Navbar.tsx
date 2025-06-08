@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDown, MessageCircle, Menu, X, ChevronRight } from 'lucide-react';
+import { BestSellers } from "@/app/components/best-sellers";
 
 export function Navbar() {
   const [activeMenu, setActiveMenu] = useState<null | "nepal" | "about">(null);
@@ -101,6 +102,7 @@ export function Navbar() {
   };
 
   return (
+    <div>
     <nav
       ref={menuRef}
       className="w-full fixed top-0 left-0 right-0 z-50 bg-black text-white shadow-md"
@@ -320,5 +322,9 @@ export function Navbar() {
         )}
       </div>
     </nav>
+
+    {/* card part */}
+      <BestSellers/>
+    </div>
   );
 }
