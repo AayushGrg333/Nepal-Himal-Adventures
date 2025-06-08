@@ -324,7 +324,7 @@ export function Navbar() {
     </nav>
 
     {/* card part */}
-      <BestSellers/>
+      {/* <BestSellers/> */}
     </div>
   );
 }
