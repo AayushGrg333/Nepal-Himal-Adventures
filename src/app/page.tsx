@@ -1,20 +1,24 @@
 "use client"
-import { ChevronDown, Search, MessageCircle, Star, Award, Leaf, Users } from "lucide-react"
+import { Search, Star, Award, Leaf, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useRotatingText } from "@/hooks/use-rotating-text"
+import { BestSellers } from "@/app/components/best-sellers";
+import { Navbar } from "@/components/Navbar"
+
+
 
 export default function HomePage() {
   const rotatingWord = useRotatingText(["Discover", "Explore", "Thrive"], 1000)
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
 
       {/* Hero Section */}
       <div
         className="relative h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/hero-bg.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/hero-bg.jpeg')`,
         }}
       >
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
@@ -38,22 +42,20 @@ export default function HomePage() {
         </div>
 
         {/* Bottom Stats Section */}
-        <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm">
-          <div className="max-w-7xl mx-auto px-4 py-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="absolute bottom-0 left-0 right-0  ">
+
+          <div className="max-w-xl mx-auto px-4 py-8  ">
+
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
               <div className="flex flex-col items-center">
-                <Users className="h-8 w-8 text-white mb-2" />
-                <div className="text-white font-bold text-lg">18 Years+</div>
+                <Users className="h-8 w-8 text-white mb-3" />
+                <div className="text-white font-bold text-lg">4 Years+</div>
                 <div className="text-gray-300 text-sm">Experience</div>
               </div>
 
-              <div className="flex flex-col items-center">
-                <Star className="h-8 w-8 text-white mb-2" />
-                <div className="text-white font-bold text-lg">2900+</div>
-                <div className="text-gray-300 text-sm">Tripadvisor Reviews</div>
-              </div>
 
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center ">
                 <Award className="h-8 w-8 text-white mb-2" />
                 <div className="text-white font-bold text-lg">Best Price</div>
                 <div className="text-gray-300 text-sm">Guaranteed</div>
@@ -67,6 +69,11 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </div>
+      {/* Best Sellers Section */}
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Best Sellers</h2>
+        <BestSellers />
       </div>
     </div>
   )
