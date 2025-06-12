@@ -70,11 +70,19 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      {/* Best Sellers Section */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Best Sellers</h2>
-        <BestSellers />
-      </div>
-    </div>
+          {/* Responsive Background Styles */}
+      {/* <style jsx>{`
+        .hero-section {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/hero-bg-mobile.jpg');
+          }
+          
+          @media (min-width: 768px) {
+            .hero-section {
+              background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/hero-bg.jpg');
+              }
+              }
+              `}
+              </style> */}
+              </div>
   )
 }
