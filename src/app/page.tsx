@@ -68,6 +68,18 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-    </div>
+          {/* Responsive Background Styles */}
+      <style jsx>{`
+        .hero-section {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/hero-bg-mobile.jpg');
+          }
+          
+          @media (min-width: 768px) {
+            .hero-section {
+              background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/hero-bg.jpg');
+              }
+              }
+              `}</style>
+              </div>
   )
 }
