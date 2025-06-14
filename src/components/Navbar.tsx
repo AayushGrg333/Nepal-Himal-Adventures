@@ -163,7 +163,7 @@ export function Navbar() {
 
   return (
     <div>
-      <div className="w-full fixed lg:p-2 p-0 top-0 left-0 right-0 z-50 bg-black/75 text-white shadow-md">
+      <div className="w-full fixed lg:p-2 p-0 top-0 left-0 right-0 z-50 bg-black/80 text-white shadow-md">
         <div className="font-inter w-full mx-auto">
           <div className="flex items-center justify-between h-18">
             {/* Left side - Logo */}

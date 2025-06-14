@@ -3,8 +3,7 @@ import { Search, Star, Award, Leaf, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRotatingText } from "@/hooks/use-rotating-text";
-import { BestSellers } from "@/app/components/best-sellers";
-import { Navbar } from "@/components/Navbar";
+import { BestSellersCarousel } from "@/components/best-sellers-carausel"
 
 export default function HomePage() {
      const rotatingWord = useRotatingText(
@@ -85,19 +84,9 @@ export default function HomePage() {
                          </div>
                     </div>
                </div>
-               {/* Responsive Background Styles */}
-               {/* <style jsx>{`
-        .hero-section {
-          background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/hero-bg-mobile.jpg');
-          }
-          
-          @media (min-width: 768px) {
-            .hero-section {
-              background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/hero-bg.jpg');
-              }
-              }
-              `}
-              </style> */}
+
+      {/* Best Sellers Carousel */}
+      <BestSellersCarousel />
           </div>
      );
 }
