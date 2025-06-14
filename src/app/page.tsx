@@ -3,9 +3,7 @@ import { Search, Star, Award, Leaf, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useRotatingText } from "@/hooks/use-rotating-text"
-import { BestSellers } from "@/app/components/best-sellers";
-import { Navbar } from "@/components/Navbar"
-
+import { BestSellersCarousel } from "./components/best-sellers"
 
 
 export default function HomePage() {
@@ -70,11 +68,11 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      {/* Best Sellers Section */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Best Sellers</h2>
-        <BestSellers />
-      </div>
+
+{/* Best Sellers Carousel */}
+      <BestSellersCarousel />
+
+
     </div>
   )
 }
