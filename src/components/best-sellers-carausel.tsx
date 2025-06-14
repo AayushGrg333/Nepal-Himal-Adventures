@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
 
 interface TrekCard {
   id: number
@@ -173,17 +174,23 @@ export function BestSellersCarousel() {
           <div className="mx-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {getCurrentCards().map((trek) => (
-                <Card key={trek.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <div className="relative">
-                    <img src={trek.image || "/placeholder.svg"} alt={trek.title} className="w-full h-48 object-cover" />
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="font-semibold text-lg text-gray-900 mb-2">
-                      {trek.title} - {trek.duration}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{trek.description}</p>
-                  </CardContent>
-                </Card>
+                <Link key={trek.id} href={`/trip/page${trek.id}`}>
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group">
+                    <div className="relative overflow-hidden">
+                      {/* <img
+                        src={trek.image || "/placeholder.svg"}
+                        alt={trek.title}
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                      /> */}
+                    </div>
+                    <CardContent className="p-4">
+                      <h3 className="font-semibold text-lg text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">
+                        {trek.title} - {trek.duration}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{trek.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
