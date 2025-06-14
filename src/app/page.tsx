@@ -34,7 +34,7 @@ export default function HomePage() {
 
                          {/* Search Bar */}
 
-                         <div className="relative w-full max-w-2xl md:mb-3 mb-10">
+                         <div className="relative w-full max-w-2xl md:mb-3">
                               <Input
                                    type="text"
                                    placeholder="Search Trips"
