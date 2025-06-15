@@ -1,5 +1,7 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import type React from "react"
+
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -113,17 +115,41 @@ const trekData: TrekCard[] = [
 
 export function BestSellersCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const cardsPerSlide = 4
+  const [isMobile, setIsMobile] = useState(false)
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
+
+  // Responsive cards per slide
+  const getCardsPerSlide = () => {
+    if (isMobile) return 2
+    return 4
+  }
+
+  const cardsPerSlide = getCardsPerSlide()
   const totalSlides = Math.ceil(trekData.length / cardsPerSlide)
 
-  // Auto-slide functionality
+  // Check if mobile
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  // Auto-slide functionality (disabled on mobile)
+  useEffect(() => {
+    if (isMobile) return
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides)
-    }, 5000) // Change slide every 5 seconds
+    }, 5000)
 
     return () => clearInterval(interval)
-  }, [totalSlides])
+  }, [totalSlides, isMobile])
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides)
@@ -133,61 +159,107 @@ export function BestSellersCarousel() {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
   }
 
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return
+
+    const distance = touchStartX.current - touchEndX.current
+    const isLeftSwipe = distance > 50
+    const isRightSwipe = distance < -50
+
+    if (isLeftSwipe) {
+      nextSlide()
+    }
+    if (isRightSwipe) {
+      prevSlide()
+    }
+  }
+
   const getCurrentCards = () => {
     const startIndex = currentSlide * cardsPerSlide
     return trekData.slice(startIndex, startIndex + cardsPerSlide)
   }
 
   return (
-    <div className="w-full bg-white py-16">
+    <div className="w-full bg-white py-8 md:py-16">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-2">Our Best Sellers for 2025</h2>
-          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-4"></div>
-          <p className="text-gray-600 text-lg">Join us on our trending adventure this year.</p>
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">Our Best Sellers for 2025</h2>
+          <div className="w-12 md:w-16 h-1 bg-yellow-500 mx-auto mb-4"></div>
+          <p className="text-gray-600 text-base md:text-lg">Join us on our trending adventure this year.</p>
         </div>
 
         {/* Carousel Container */}
         <div className="relative">
-          {/* Left Arrow */}
-          <Button
-            onClick={prevSlide}
-            variant="outline"
-            size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg border-gray-200 w-12 h-12 rounded-full"
-          >
-            <ChevronLeft className="h-6 w-6 text-gray-700" />
-          </Button>
+          {/* Desktop Arrows - Hidden on Mobile */}
+          {!isMobile && (
+            <>
+              <Button
+                onClick={prevSlide}
+                variant="outline"
+                size="icon"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg border-gray-200 w-12 h-12 rounded-full"
+              >
+                <ChevronLeft className="h-6 w-6 text-gray-700" />
+              </Button>
 
-          {/* Right Arrow */}
-          <Button
-            onClick={nextSlide}
-            variant="outline"
-            size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg border-gray-200 w-12 h-12 rounded-full"
-          >
-            <ChevronRight className="h-6 w-6 text-gray-700" />
-          </Button>
+              <Button
+                onClick={nextSlide}
+                variant="outline"
+                size="icon"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg border-gray-200 w-12 h-12 rounded-full"
+              >
+                <ChevronRight className="h-6 w-6 text-gray-700" />
+              </Button>
+            </>
+          )}
 
           {/* Cards Container */}
-          <div className="mx-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            ref={carouselRef}
+            className={isMobile ? "px-4" : "mx-12"}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div
+              className={`grid gap-4 md:gap-6 ${
+                isMobile ? "grid-cols-2" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+              }`}
+            >
               {getCurrentCards().map((trek) => (
                 <Link key={trek.id} href={`/trip/page${trek.id}`}>
-                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group">
-                    <div className="relative overflow-hidden">
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group h-full flex flex-col">
+                    <div className="relative overflow-hidden flex-shrink-0">
                       {/* <img
                         src={trek.image || "/placeholder.svg"}
                         alt={trek.title}
-                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                        className={`w-full object-cover transition-transform duration-300 group-hover:scale-110 ${
+                          isMobile ? "h-32" : "h-48"
+                        }`}
                       /> */}
                     </div>
-                    <CardContent className="p-4">
-                      <h3 className="font-semibold text-lg text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">
+                    <CardContent className={`${isMobile ? "p-3" : "p-4"} flex-1 flex flex-col justify-between`}>
+                      <h3
+                        className={`font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 ${
+                          isMobile ? "text-sm leading-tight" : "text-lg"
+                        } line-clamp-2`}
+                      >
                         {trek.title} - {trek.duration}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{trek.description}</p>
+                      {/* Description only shown on desktop */}
+                      {!isMobile && (
+                        <p className="text-gray-600 text-sm leading-relaxed mt-2 line-clamp-3">{trek.description}</p>
+                      )}
                     </CardContent>
                   </Card>
                 </Link>
@@ -196,17 +268,24 @@ export function BestSellersCarousel() {
           </div>
 
           {/* Slide Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-6 md:mt-8 space-x-2">
             {Array.from({ length: totalSlides }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors duration-200 ${
                   index === currentSlide ? "bg-yellow-500" : "bg-gray-300"
                 }`}
               />
             ))}
           </div>
+
+          {/* Mobile Swipe Hint */}
+          {isMobile && (
+            <div className="text-center mt-4">
+              <p className="text-xs text-gray-500">Swipe left or right to browse</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
