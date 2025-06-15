@@ -81,6 +81,7 @@ export function WhyUsSection() {
               className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               Discover Our Story
+              
             </Button>
           </Link>
         </div>
