@@ -238,26 +238,28 @@ export function BestSellersCarousel() {
             >
               {getCurrentCards().map((trek) => (
                 <Link key={trek.id} href={`/trip/page${trek.id}`}>
-                  <Card className="min-h-32 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group">
-                    <div className="relative overflow-hidden ">
-                      <img
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group h-full flex flex-col">
+                    <div className="relative overflow-hidden flex-shrink-0">
+                      {/* <img
                         src={trek.image || "/placeholder.svg"}
                         alt={trek.title}
                         className={`w-full object-cover transition-transform duration-300 group-hover:scale-110 ${
                           isMobile ? "h-32" : "h-48"
                         }`}
-                      />
+                      /> */}
                     </div>
-                    <CardContent className={isMobile ? "p-3" : "p-4"}>
+                    <CardContent className={`${isMobile ? "p-3" : "p-4"} flex-1 flex flex-col justify-between`}>
                       <h3
-                        className={`font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200 ${
-                          isMobile ? "text-sm" : "text-lg"
-                        }`}
+                        className={`font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 ${
+                          isMobile ? "text-sm leading-tight" : "text-lg"
+                        } line-clamp-2`}
                       >
                         {trek.title} - {trek.duration}
                       </h3>
                       {/* Description only shown on desktop */}
-                      {!isMobile && <p className="text-gray-600 text-sm leading-relaxed">{trek.description}</p>}
+                      {!isMobile && (
+                        <p className="text-gray-600 text-sm leading-relaxed mt-2 line-clamp-3">{trek.description}</p>
+                      )}
                     </CardContent>
                   </Card>
                 </Link>
