@@ -30,13 +30,7 @@ export function DestinationsSection() {
       image: null,
       available: false,
     },
-    {
-      id: 4,
-      name: "India",
-      trips: "12 Trips",
-      image: null,
-      available: false,
-    },
+    
   ]
 
   // Touch handlers for mobile swipe
