@@ -2,8 +2,23 @@
 import { Mountain, Shield, Heart, Users, Award, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useState, useEffect } from "react"
 
 export function WhyUsSection() {
+  const [isMobile, setIsMobile] = useState(false)
+  const [showAllCards, setShowAllCards] = useState(false)
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
   const features = [
     {
       icon: <Mountain className="h-8 w-8 text-blue-600" />,
@@ -48,9 +63,9 @@ export function WhyUsSection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Why Nepal Himal Adventures?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Nepal Himal Adventures?</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
             Since 2023, we've been your gateway to Nepal's magnificent Himalayas. With passionate local experts and an
             unwavering commitment to sustainable tourism, we create transformative adventures that connect you deeply
             with Nepal's breathtaking landscapes and rich culture.
@@ -59,7 +74,7 @@ export function WhyUsSection() {
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {features.map((feature, index) => (
+          {(isMobile && !showAllCards ? features.slice(0, 3) : features).map((feature, index) => (
             <div
               key={index}
               className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"

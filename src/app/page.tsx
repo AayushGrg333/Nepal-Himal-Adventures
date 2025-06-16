@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useRotatingText } from "@/hooks/use-rotating-text";
 import { BestSellersCarousel } from "@/components/best-sellers-carausel"
 import { WhyUsSection } from "@/components/why-us-section";
+import { DestinationsSection } from "@/components/destinations-section";
 
 export default function HomePage() {
      const rotatingWord = useRotatingText(
@@ -91,6 +92,11 @@ export default function HomePage() {
 
       {/* Why Us Section */}
       <WhyUsSection />
+
+      
+      {/* Destinations Section */}
+      <DestinationsSection />
+
           </div>
      );
 }
