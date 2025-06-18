@@ -65,12 +65,12 @@ export function DestinationsSection() {
           {/* Left Side - Text Content */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
+              <div className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
                 Journey to the
                 <br />
                 Himalayan Lands
-              </h2>
-              <div className="w-16 h-1 bg-yellow-500 mb-6"></div>
+              </div>
+              <div className="w-16 rounded-2xl h-1 bg-gradient-to-r from-blue-900 to-blue-500 mb-6"></div>
             </div>
             <p className="text-lg text-gray-600 leading-relaxed">
               Unveiling Hidden Wonders: Nepal, Bhutan, Tibet, and Beyond - Inspire Your Journey!
@@ -130,7 +130,7 @@ export function DestinationsSection() {
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Journey to the Himalayan Lands</h2>
-            <div className="w-16 h-1 bg-yellow-500 mx-auto mb-6"></div>
+            <div className="w-16 h-1 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-500 mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600">
               Unveiling Hidden Wonders: Nepal, Bhutan, Tibet, and Beyond - Inspire Your Journey!
             </p>
@@ -155,7 +155,7 @@ export function DestinationsSection() {
                     {/* Overlay elements */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                     <div className="absolute top-4 left-4">
-                      <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                      <span className="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold">
                         {destinations[currentSlide].trips}
                       </span>
                     </div>
@@ -178,7 +178,7 @@ export function DestinationsSection() {
                       {/* Overlay elements */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                       <div className="absolute top-4 left-4">
-                        <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                        <span className="bg-blue-700 text-black px-3 py-1 rounded-full text-sm font-semibold">
                           {destinations[currentSlide].trips}
                         </span>
                       </div>
@@ -205,7 +205,7 @@ export function DestinationsSection() {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                    index === currentSlide ? "bg-yellow-500" : "bg-gray-300"
+                    index === currentSlide ? "bg-blue-700" : "bg-gray-300"
                   }`}
                 />
               ))}

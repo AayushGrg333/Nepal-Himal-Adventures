@@ -10,6 +10,7 @@ import { ReviewsSection } from "@/components/reviews-section";
 import TrekkingRegions from "@/components/trekking-regions";
 import FAQSection from "@/components/faq-section";
 import SpeakToExpert from "@/components/speak-to-expert";
+import BookAdventureCTA from "@/components/book-adventure";
 
 export default function HomePage() {
      const rotatingWord = useRotatingText(
@@ -111,6 +112,9 @@ export default function HomePage() {
 
                {/* Speak to Expert Section */}
                <SpeakToExpert />
+
+               {/* Book Adventure CTA */}
+               <BookAdventureCTA />
 
           </div>
      );

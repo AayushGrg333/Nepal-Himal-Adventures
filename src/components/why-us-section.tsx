@@ -63,9 +63,9 @@ export function WhyUsSection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Nepal Himal Adventures?</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-8"></div>
-          <p className="text-lg md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Why Nepal Himal Adventures?</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-900 to-blue-500 mx-auto mb-8"></div>
+          <p className="text-md md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
             Since 2023, we've been your gateway to Nepal's magnificent Himalayas. With passionate local experts and an
             unwavering commitment to sustainable tourism, we create transformative adventures that connect you deeply
             with Nepal's breathtaking landscapes and rich culture.
@@ -81,8 +81,8 @@ export function WhyUsSection() {
             >
               <div className="flex flex-col items-center text-center">
                 <div className="mb-6 p-4 bg-gray-50 rounded-full">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed">{feature.description}</p>
               </div>
             </div>
           ))}

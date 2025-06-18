@@ -129,9 +129,9 @@ export function ReviewsSection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Traveler Reviews</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Traveler Reviews</h2>
+          <div className="w-20 h-1 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-500 mx-auto mb-8"></div>
+          <p className="text-md md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
             These full and frank reviews are from travelers who have traveled with Nepal Himal Adventures previously.
             The reviews and experiences shown here are from our valued customers.
           </p>
@@ -232,7 +232,7 @@ export function ReviewsSection() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                  index === currentSlide ? "bg-blue-500" : "bg-gray-300"
+                  index === currentSlide ? "bg-blue-700" : "bg-gray-300"
                 }`}
               />
             ))}

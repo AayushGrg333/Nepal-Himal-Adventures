@@ -193,8 +193,8 @@ export function BestSellersCarousel() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">Our Best Sellers for 2025</h2>
-          <div className="w-12 md:w-16 h-1 bg-yellow-500 mx-auto mb-4"></div>
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Our Best Sellers for 2025</h2>
+          <div className="w-14 md:w-20 h-1 rounded bg-gradient-to-r from-blue-900 to-blue-500 mx-auto mb-5"></div>
           <p className="text-gray-600 text-base md:text-lg">Join us on our trending adventure this year.</p>
         </div>
 
@@ -274,7 +274,7 @@ export function BestSellersCarousel() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors duration-200 ${
-                  index === currentSlide ? "bg-yellow-500" : "bg-gray-300"
+                  index === currentSlide ? "bg-blue-800" : "bg-gray-300"
                 }`}
               />
             ))}
