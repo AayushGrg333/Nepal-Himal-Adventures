@@ -9,6 +9,7 @@ import { DestinationsSection } from "@/components/destinations-section";
 import { ReviewsSection } from "@/components/reviews-section";
 import TrekkingRegions from "@/components/trekking-regions";
 import FAQSection from "@/components/faq-section";
+import SpeakToExpert from "@/components/speak-to-expert";
 
 export default function HomePage() {
      const rotatingWord = useRotatingText(
@@ -107,6 +108,10 @@ export default function HomePage() {
 
                {/* FAQ Section */}
                <FAQSection />
+
+               {/* Speak to Expert Section */}
+               <SpeakToExpert />
+
           </div>
      );
 }
