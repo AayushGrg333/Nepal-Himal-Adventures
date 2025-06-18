@@ -98,7 +98,7 @@ export default function TrekkingRegions() {
               {trekkingRegions.map((region) => (
                 <CarouselItem key={region.id} className="pl-2 md:pl-4 basis-full md:basis-1/2">
                   <Card className="border-0 overflow-hidden group cursor-pointer">
-                    <CardContent className="p-0 relative h-60 md:h-96">
+                    <CardContent className="p-0 relative h-60 md:h-80">
                       {/* Background Image */}
                       <div
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
