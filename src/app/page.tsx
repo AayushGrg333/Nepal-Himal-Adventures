@@ -7,6 +7,7 @@ import { BestSellersCarousel } from "@/components/best-sellers-carausel";
 import { WhyUsSection } from "@/components/why-us-section";
 import { DestinationsSection } from "@/components/destinations-section";
 import { ReviewsSection } from "@/components/reviews-section";
+import TrekkingRegions from "@/components/trekking-regions";
 
 export default function HomePage() {
      const rotatingWord = useRotatingText(
@@ -99,6 +100,9 @@ export default function HomePage() {
 
                {/* Reviews Section */}
                <ReviewsSection />
+
+               {/* Trekking Regions Section */}
+               <TrekkingRegions />
           </div>
      );
 }
