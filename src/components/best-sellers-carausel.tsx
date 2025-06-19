@@ -194,7 +194,7 @@ export function BestSellersCarousel() {
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Our Best Sellers for 2025</h2>
-          <div className="w-14 md:w-20 h-1 rounded bg-gradient-to-r from-blue-900 to-blue-500 mx-auto mb-5"></div>
+          <div className="w-14 md:w-20 h-1 rounded bg-[#f2b203] mx-auto mb-5"></div>
           <p className="text-gray-600 text-base md:text-lg">Join us on our trending adventure this year.</p>
         </div>
 
@@ -240,13 +240,13 @@ export function BestSellersCarousel() {
                 <Link key={trek.id} href={`/trip/page${trek.id}`}>
                   <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group h-full flex flex-col">
                     <div className="relative overflow-hidden flex-shrink-0">
-                      {/* <img
+                      <img
                         src={trek.image || "/placeholder.svg"}
                         alt={trek.title}
                         className={`w-full object-cover transition-transform duration-300 group-hover:scale-110 ${
                           isMobile ? "h-32" : "h-48"
                         }`}
-                      /> */}
+                      />
                     </div>
                     <CardContent className={`${isMobile ? "p-3" : "p-4"} flex-1 flex flex-col justify-between`}>
                       <h3
@@ -274,7 +274,7 @@ export function BestSellersCarousel() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors duration-200 ${
-                  index === currentSlide ? "bg-blue-800" : "bg-gray-300"
+                  index === currentSlide ? "bg-[#f2b203]" : "bg-gray-300"
                 }`}
               />
             ))}

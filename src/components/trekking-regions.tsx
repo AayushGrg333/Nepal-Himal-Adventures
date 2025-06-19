@@ -65,7 +65,7 @@ export default function TrekkingRegions() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">Trekking Regions in Nepal</h2>
-          <p className="text-gray-300 text-md max-w-3xl mx-auto">
+          <p className="text-gray-300  text-base max-w-3xl mx-auto">
             Explore the Himalaya and unravel the beauty of trekking in Nepal along these regions.
           </p>
         </div>

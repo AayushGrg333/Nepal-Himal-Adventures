@@ -62,10 +62,10 @@ export function WhyUsSection() {
     <section className="w-full bg-gradient-to-br from-slate-50 to-blue-50 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Why Nepal Himal Adventures?</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-900 to-blue-500 mx-auto mb-8"></div>
-          <p className="text-md md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <div className="w-23 h-1 rounded bg-[#f2b203]  mx-auto mb-6"></div>
+          <p className="text-base md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
             Since 2023, we've been your gateway to Nepal's magnificent Himalayas. With passionate local experts and an
             unwavering commitment to sustainable tourism, we create transformative adventures that connect you deeply
             with Nepal's breathtaking landscapes and rich culture.
@@ -93,7 +93,7 @@ export function WhyUsSection() {
           <Link href="/about">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r bg-[#f2b203] hover:bg-[#e6a700] text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               Discover Our Story
             </Button>
