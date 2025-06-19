@@ -128,10 +128,10 @@ export function ReviewsSection() {
     <section className="w-full bg-gray-50 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Traveler Reviews</h2>
-          <div className="w-20 h-1 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-500 mx-auto mb-8"></div>
-          <p className="text-md md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-5">Traveler Reviews</h2>
+          <div className="w-20 h-1 rounded-2xl bg-[#f2b203] mx-auto mb-8"></div>
+          <p className="text-base md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
             These full and frank reviews are from travelers who have traveled with Nepal Himal Adventures previously.
             The reviews and experiences shown here are from our valued customers.
           </p>
@@ -188,7 +188,7 @@ export function ReviewsSection() {
                     {/* Review Text */}
                     <div className="relative">
                       <div className="text-4xl text-gray-200 absolute -top-2 -left-2 font-serif">"</div>
-                      <p className="text-gray-700 leading-relaxed text-base px-4 relative z-10 italic">
+                      <p className="text-gray-700 leading-relaxed text-sm px-4 relative z-10 italic">
                         {getCurrentReviews()[0].review}
                       </p>
                       <div className="text-4xl text-gray-200 absolute -bottom-4 -right-2 font-serif">"</div>
@@ -232,7 +232,7 @@ export function ReviewsSection() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                  index === currentSlide ? "bg-blue-700" : "bg-gray-300"
+                  index === currentSlide ? "bg-[#f2b203]" : "bg-gray-300"
                 }`}
               />
             ))}

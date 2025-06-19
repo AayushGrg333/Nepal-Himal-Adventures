@@ -70,7 +70,7 @@ export function DestinationsSection() {
                 <br />
                 Himalayan Lands
               </div>
-              <div className="w-16 rounded-2xl h-1 bg-gradient-to-r from-blue-900 to-blue-500 mb-6"></div>
+              <div className="w-16 rounded-2xl h-1 bg-[#f2b203] mb-6"></div>
             </div>
             <p className="text-lg text-gray-600 leading-relaxed">
               Unveiling Hidden Wonders: Nepal, Bhutan, Tibet, and Beyond - Inspire Your Journey!
@@ -129,9 +129,9 @@ export function DestinationsSection() {
         <div className="lg:hidden">
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Journey to the Himalayan Lands</h2>
-            <div className="w-16 h-1 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-500 mx-auto mb-6"></div>
-            <p className="text-base md:text-lg text-gray-600">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Journey to the Himalayan Lands</h2>
+            <div className="w-16 h-1 rounded-2xl bg-[#f2b203] mx-auto mb-6"></div>
+            <p className="text-base md:text-md text-gray-600">
               Unveiling Hidden Wonders: Nepal, Bhutan, Tibet, and Beyond - Inspire Your Journey!
             </p>
           </div>
@@ -205,7 +205,7 @@ export function DestinationsSection() {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                    index === currentSlide ? "bg-blue-700" : "bg-gray-300"
+                    index === currentSlide ? "bg-[#f2b203]" : "bg-gray-300"
                   }`}
                 />
               ))}

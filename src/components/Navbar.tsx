@@ -284,16 +284,19 @@ export function Navbar() {
 
             {/* Right side - WhatsApp Contact */}
 <a
-  href="https://wa.me/9771234567899"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hidden md:flex items-center mr-4 md:mr-1"
->
-  <div className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg transition-colors duration-200 cursor-pointer">
-    <MessageCircle className="h-4 w-4 text-white" />
-    <span className="text-white font-medium">+9771234567899</span>
-  </div>
-</a>
+        href="https://wa.me/9771234567899"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden md:flex items-center group"
+      >
+        <div className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg transition-colors duration-200 cursor-pointer">
+          {/* WhatsApp Icon */}
+          <div className="w-7 h-6 bg-white rounded-full flex items-center justify-center">
+            <MessageCircle className="h-4 w-4 text-[#25D366]" fill="currentColor" />
+          </div>
+          <span className="text-white font-medium text-sm">+9771234567899</span>
+        </div>
+      </a>
 
 
             {/* Mobile menu button */}
