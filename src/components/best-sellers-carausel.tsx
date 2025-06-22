@@ -22,7 +22,7 @@ const trekData: TrekCard[] = [
     duration: "14 Days",
     description:
       "Enjoy an exciting journey across the Khumbu region's trails with the stunning vistas of mountain peaks and the...",
-    image: "abc.jpg",
+    image: ".jpg",
   },
   {
     id: 2,
@@ -241,7 +241,7 @@ export function BestSellersCarousel() {
                   <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group h-full flex flex-col">
                     <div className="relative overflow-hidden flex-shrink-0">
                       <img
-                        src={trek.image || "/placeholder.svg"}
+                        // src={trek.image || "/placeholder.svg"}
                         alt={trek.title}
                         className={`w-full object-cover transition-transform duration-300 group-hover:scale-110 ${
                           isMobile ? "h-32" : "h-48"
